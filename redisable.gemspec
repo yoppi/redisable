@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Redisable::VERSION
   spec.authors       = ["yoppi"]
   spec.email         = ["y.hirokazu@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+  spec.description   = %q{Thin wrapper library for Redis, enable any Ruby class to access Redis.}
+  spec.summary       = %q{Thin wrapper library for Redis.}
+  spec.homepage      = "http://github.com/yoppi/redisable"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)

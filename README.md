@@ -1,6 +1,6 @@
 # Redisable
 
-TODO: Write a gem description
+Thin wrapper library for Redis, enable any Ruby class to access Redis.
 
 ## Installation
 
