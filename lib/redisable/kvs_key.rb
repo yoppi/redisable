@@ -18,7 +18,7 @@ module Redisable
           KVSKey.join_key(klass_name, id_, name, options[:blank_field])
         end
         define_singleton_method(name) do |id_=nil|
-          id_ ||= opts[:id].call(self)
+          id_ ||= options[:id].call(self)
           KVSKey.join_key(klass_name, id_, name, options[:blank_field])
         end
       end
