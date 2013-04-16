@@ -1,4 +1,4 @@
-# Redisable
+# Redisable [![Build Status](https://travis-ci.org/yoppi/redisable.png)](https://travis-ci.org/yoppi/redisable)
 
 Thin wrapper library for Redis, enable any Ruby class to access Redis.
 
