@@ -56,7 +56,7 @@ class User < ActiveRecord::Base
   end
 end
 
-class UserStatus
+class UserStatus < ActionController::Base
   include Redisable
   kvs_key :followers_ids
   kvs_key :unread_news_ids
