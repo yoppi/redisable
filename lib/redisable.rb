@@ -4,12 +4,12 @@ require "redis"
 module Redisable
   autoload :Config, "redisable/config"
   autoload :Connection, "redisable/connection"
-  autoload :KVSKey, "redisable/kvs_key"
+  autoload :Key, "redisable/key"
 
   def self.included(base)
     base.extend ClassMethods
     base.send :include, InstanceMethods
-    base.send :include, KVSKey
+    base.send :include, Key
   end
 
   module ClassMethods

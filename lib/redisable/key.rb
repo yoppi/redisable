@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 module Redisable
-  module KVSKey
+  module Key
     def self.included(base)
       base.extend ClassMethods
     end
 
     module ClassMethods
       # return model_name:id:field_name
-      def kvs_key(name, options={})
+      def redis_key(name, options={})
         klass_name ||= self.name
         define_method(name) do |id_=nil|
           id_ ||= if options[:id]
@@ -15,11 +15,11 @@ module Redisable
                   else
                     self.id
                   end
-          KVSKey.join_key(klass_name, id_, name, options[:blank_field])
+          Key.join_key(klass_name, id_, name, options[:blank_field])
         end
         define_singleton_method(name) do |id_=nil|
           id_ ||= options[:id].call(self)
-          KVSKey.join_key(klass_name, id_, name, options[:blank_field])
+          Key.join_key(klass_name, id_, name, options[:blank_field])
         end
       end
     end

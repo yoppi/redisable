@@ -8,12 +8,12 @@ describe Redisable do
   it "autoload modules" do
     defined?(Redisable::Config).should == "constant"
     defined?(Redisable::Connection).should == "constant"
-    defined?(Redisable::KVSKey).should == "constant"
+    defined?(Redisable::Key).should == "constant"
   end
 
   describe "Include module" do
-    it "define kvs_key method" do
-      defined?(User.kvs_key).should == "method"
+    it "define redis_key method" do
+      defined?(User.redis_key).should == "method"
     end
     it "define redis method" do
       defined?(User.redis).should == "method"

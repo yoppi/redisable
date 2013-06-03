@@ -2,27 +2,27 @@
 require 'spec_helper'
 
 class User
-  include Redisable::KVSKey
+  include Redisable::Key
 end
 
-describe Redisable::KVSKey do
+describe Redisable::Key do
   describe ".join_key" do
     context "Field name is not blank" do
       it "join with ':' specified key, id and name" do
-        Redisable::KVSKey.join_key("user", "100", "status", false).should == "user:100:status"
+        Redisable::Key.join_key("user", "100", "status", false).should == "user:100:status"
       end
     end
 
     context "Field name is blank" do
       it "join with ':' specified key, id" do
-        Redisable::KVSKey.join_key("user", "100", "status", true).should == "user:100"
+        Redisable::Key.join_key("user", "100", "status", true).should == "user:100"
       end
     end
   end
 
   describe "to include" do
-    it "defined 'kvs_key' method" do
-      defined?(User.kvs_key).should == "method"
+    it "defined 'redis_key' method" do
+      defined?(User.redis_key).should == "method"
     end
   end
 end
