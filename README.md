@@ -58,8 +58,8 @@ end
 
 class UserStatus < ActionController::Base
   include Redisable
-  kvs_key :followers_ids
-  kvs_key :unread_news_ids
+  redis_key :followers_ids
+  redis_key :unread_news_ids
 
   def initialize(id)
     @user_id = id
