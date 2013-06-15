@@ -12,13 +12,18 @@ module Redisable
         define_method(name) do |id_=nil|
           id_ ||= if options[:id]
                     options[:id].call(self)
-                  else
+                  elsif defined?(self.id)
                     self.id
                   end
           Key.join_key(klass_name, id_, name, options[:blank_field])
         end
+
         define_singleton_method(name) do |id_=nil|
-          id_ ||= options[:id].call(self)
+          id_ ||= if options[:id]
+                    options[:id].call(self)
+                  elsif defined?(self.id)
+                    self.id
+                  end
           Key.join_key(klass_name, id_, name, options[:blank_field])
         end
       end
